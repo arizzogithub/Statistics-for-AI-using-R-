@@ -1,10 +1,13 @@
 ﻿*Data Activity 1.1
 Download the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset from its catalogue page. It is an open access dataset which the data are available to download without any registration with the UK Data Service.
 Ensure you download and save the SPSS.sav version of the dataset. Save the data into a folder that you would like to save all your data and R activities in as we will return to this dataset regularly during the module.
+
+
 *Data Activity 1.2
 Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, assess the level of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary statistic, using the ‘antisocx’ variable.
+
 library(haven)
-csew1314teachingopen <- read_sav("C:/Users/Owner/Desktop/DataScience/R/Data Activities 1/csew1314teachingopen.sav")
+csew1314teachingopen <- read_sav("csew1314teachingopen.sav")
 View(csew1314teachingopen)
 
 
@@ -12,16 +15,21 @@ View(csew1314teachingopen)
 data <- read_spss("csew1314teachingopen.sav")
 # calculate summary statistics for antisocx variable
 summary(data$antisocx)
+
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
  -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694
 
 
 The  mean, standard deviation, minimum, and maximum values of the variable were calculated for this purpose.
+
 Learning Outcome
 * Systematic understanding of the key mathematical and statistical concepts and techniques which underpin mechanisms in Data Science and AI.
+
 *Data Activity 2
 Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset (see Unit 1), perform the following activities:
+
 1. Explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim.
+
 # check if any respondent experienced any crime in the previous 12 months
 any_crime <- any(!is.na(data$bcsvictim))
 # print the result
@@ -30,6 +38,7 @@ if (any_crime) {
 } else {
   cat("No respondents experienced crime in the previous 12 months.\n")
 }
+
 Some respondents experienced crime in the previous 12 months.
 
 
